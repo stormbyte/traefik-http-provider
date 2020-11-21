@@ -1,0 +1,15 @@
+{
+    "name": "stormbyte/traefik-http-config",
+    "type": "library",
+    "description": "A library to generate a Http Provider for Traefik",
+    "keywords": ["traefik","http","config","php"],
+    "homepage": "http://stormbyte.nl",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "N.A. Walhof",
+            "homepage": "http://stormbyte.nl",
+            "role": "Developer"
+        }
+    ]
+}
