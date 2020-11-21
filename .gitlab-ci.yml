@@ -1,0 +1,22 @@
+stages:
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+deploy_composer_tag:
+  image: curlimages/curl:7.72.0
+  only:
+    - tags
+  stage: deploy
+  script:
+    - 'curl --header "Job-Token: ${CI_JOB_TOKEN}" --data tag="${CI_COMMIT_TAG}" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/composer"'
+
+deploy_composer_branch:
+  image: curlimages/curl:7.72.0
+  only:
+    - branches
+  stage: deploy
+  script:
+    - 'curl --header "Job-Token: ${CI_JOB_TOKEN}" --data branch="${CI_COMMIT_BRANCH}" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/composer"'
+
