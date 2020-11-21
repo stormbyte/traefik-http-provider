@@ -5,11 +5,16 @@
     "keywords": ["traefik","http","config","php"],
     "homepage": "http://stormbyte.nl",
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "N.A. Walhof",
-            "homepage": "http://stormbyte.nl",
-            "role": "Developer"
+            "homepage": "http://stormbyte.nl"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Traefik\\": "src/Traefik"
+        }
+    }
 }
