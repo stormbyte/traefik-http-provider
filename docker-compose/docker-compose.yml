@@ -26,15 +26,24 @@ services:
       # - "--certificatesResolvers.letsencrypt.acme.tlsChallenge"
 
     volumes:
+      # SSL certificates
       - ./acme:/acme
     ports:
       - 8080:8080
       - 80:80
       - 3306:3306
+    depends_on:
+      - api
+
+  composer:
+    image: composer:1
+    volumes:
+      - ./html:/app
+    command: ["composer", "install"]
 
   api:
     image: php:7.4-apache
     volumes:
       - ./html:/var/www/html
-    ports:
-      - 8888:80
+    depends_on:
+      - composer
