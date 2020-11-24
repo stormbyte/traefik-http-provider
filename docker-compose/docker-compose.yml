@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  traefik:
+    image: traefik:2.3
+
+    command:
+      # https://doc.traefik.io/traefik/v2.3/reference/static-configuration/cli/
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.http.endpoint=http://api/index.php"
+      - "--providers.http.pollInterval=5s"
+
+      - "--entrypoints.http.address=:80"
+      - "--entrypoints.https.address=:443"
+      - "--entrypoints.database.address=:3306"
+
+      - "--accesslog"
+      - "--global.checkNewVersion=true"
+      - "--global.sendAnonymousUsage=false"
+      - "--serversTransport.insecureSkipVerify=true"
+      - "--api.insecure=true"
+      - "--api.debug=true"
+      - "--api.dashboard=true"
+      # - "--certificatesResolvers.letsencrypt.acme.email=example@email.com"
+      # - "--certificatesResolvers.letsencrypt.acme.storage=/acme/acme-tls.json"
+      # - "--certificatesResolvers.letsencrypt.acme.tlsChallenge"
+
+    volumes:
+      - ./acme:/acme
+    ports:
+      - 8080:8080
+      - 80:80
+      - 3306:3306
+
+  api:
+    image: php:7.4-apache
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 8888:80

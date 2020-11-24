@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "893592c8617f975718094f6246b3bd9d",
+    "packages": [
+        {
+            "name": "stormbyte/traefik-http-config",
+            "version": "V0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stormbyte/traefik-http-provider.git",
+                "reference": "3ac8712017ab305d94f26012a92eafe0fdf8cea7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stormbyte/traefik-http-provider/zipball/3ac8712017ab305d94f26012a92eafe0fdf8cea7",
+                "reference": "3ac8712017ab305d94f26012a92eafe0fdf8cea7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Traefik\\": "src/Traefik"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "N.A. Walhof",
+                    "homepage": "http://stormbyte.nl"
+                }
+            ],
+            "description": "A library to generate a Http Provider for Traefik",
+            "homepage": "http://stormbyte.nl",
+            "keywords": [
+                "config",
+                "http",
+                "php",
+                "traefik"
+            ],
+            "time": "2020-11-21T13:30:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}
