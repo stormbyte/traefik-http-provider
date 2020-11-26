@@ -10,9 +10,9 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Forwardauth extends MiddlewareAbstract
 {
     protected string $middlewareName = 'forwardauth';
-    protected array $middlewareOptions = ['address','tls','trustForwardHeader','authResponseHeaders'];
+    protected array $middlewareOptions = ['address', 'tls', 'trustForwardHeader', 'authResponseHeaders'];
 
-    protected function setTrustForwardHeader( bool $value )
+    protected function setTrustForwardHeader(bool $value)
     {
         return $value;
     }

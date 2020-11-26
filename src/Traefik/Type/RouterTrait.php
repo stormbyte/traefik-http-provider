@@ -2,7 +2,8 @@
 
 namespace Traefik\Type;
 
-trait RouterTrait{
+trait RouterTrait
+{
 
     /**
      * @return string

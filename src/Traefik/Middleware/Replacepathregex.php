@@ -10,5 +10,5 @@ use Traefik\Middleware\MiddlewareAbstract;
 class replacepathregex extends MiddlewareAbstract
 {
     protected string $middlewareName = 'replacepathregex';
-    protected array $middlewareOptions = ['regex','replacement'];
+    protected array $middlewareOptions = ['regex', 'replacement'];
 }

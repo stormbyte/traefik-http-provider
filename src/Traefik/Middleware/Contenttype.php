@@ -12,7 +12,7 @@ class Contenttype extends MiddlewareAbstract
     protected string $middlewareName = 'contenttype';
     protected array $middlewareOptions = ['autoDetect'];
 
-    protected function setAutoDetect( bool $value )
+    protected function setAutoDetect(bool $value)
     {
         return $value;
     }

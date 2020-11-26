@@ -2,114 +2,37 @@
 
 namespace Traefik\Http;
 
-use Traefik\configObject;
+use Traefik\RouterObject;
 use Traefik\Transport\HttpTrait;
 use Traefik\Type\RouterTrait;
 
-class Router implements configObject
+class Router extends RouterObject
 {
-	use HttpTrait;
-	use RouterTrait;
+    use HttpTrait;
+    use RouterTrait;
 
-	protected string $name;
-	protected string $rule;
-	protected array $entryPoints;
-	protected bool $tls = false;
-	protected int $priority;
-	protected array $middlewares;
+    public function getData(): array
+    {
+        $routerData = [
+            'entryPoints' => $this->getEntryPoints(),
+            'service' => $this->getService(),
+            'rule' => $this->getRule(),
 
-	public function setPriority( int $priority)
-	{
-		$this->priority = $priority;
-		return $this;
-	}
+        ];
+        if ($this->tls) {
+            $routerData['tls'] = [
+                'certResolver' => 'letsencrypt'
+            ];
+        }
 
-	public function getPriority()
-	{
-		return $this->priority;
-	}
+        if (isset($this->priority)) {
+            $routerData['priority'] = $this->priority;
+        }
 
-	public function getName(): string
-	{
-		return $this->name;
-	}
+        if (isset($this->middlewares)) {
+            $routerData['middlewares'] = $this->middlewares;
+        }
 
-	public function setName($name)
-	{
-		$this->name = $name;
-		return $this;
-	}
-
-	public function getRule(){
-		return $this->rule;
-	}
-
-	public function setRule($rule)
-	{
-		$this->rule = $rule;
-		return $this;
-	}
-
-	public function getService(){
-		return $this->serviceName;
-	}
-
-	public function setService($serviceName)
-	{
-		$this->serviceName = $serviceName;
-		return $this;
-	}
-
-	public function getTls(){
-		return $this->tls;
-	}
-
-	public function setTls(bool $tls)
-	{
-		$this->tls = $tls;
-		return $this;
-	}
-
-	public function setEntryPoints( array $entryPoints)
-	{
-		$this->entryPoints = $entryPoints;
-		return $this;
-	}
-
-	public function getEntryPoints()
-	{
-		return $this->entryPoints;
-	}
-
-	public function setMiddlewares( array $middlewares)
-	{
-		$this->middlewares = $middlewares;
-		return $this;
-	}
-
-	public function getData(): array
-	{
-		$routerData = [
-			'entryPoints' => $this->getEntryPoints(),
-			'service' => $this->getService(),
-			'rule' => $this->getRule(),
-			
-		];
-		if( $this->tls ){
-			$routerData['tls'] = [
-				'certResolver' => 'letsencrypt'
-			];
-		}
-
-		if( isset( $this->priority ) ){
-			$routerData['priority'] = $this->priority;
-		}
-
-		if( isset( $this->middlewares ) ){
-			$routerData['middlewares'] = $this->middlewares;
-		}
-
-		return $routerData;
-	}
-
+        return $routerData;
+    }
 }

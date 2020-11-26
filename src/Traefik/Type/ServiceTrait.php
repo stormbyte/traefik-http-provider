@@ -2,7 +2,8 @@
 
 namespace Traefik\Type;
 
-trait ServiceTrait{
+trait ServiceTrait
+{
 
     /**
      * @return string

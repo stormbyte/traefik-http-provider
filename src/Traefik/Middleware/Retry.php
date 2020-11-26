@@ -12,7 +12,7 @@ class Retry extends MiddlewareAbstract
     protected string $middlewareName = 'retry';
     protected array $middlewareOptions = ['attempts'];
 
-    protected function setAttempts( int $value )
+    protected function setAttempts(int $value)
     {
         return $value;
     }

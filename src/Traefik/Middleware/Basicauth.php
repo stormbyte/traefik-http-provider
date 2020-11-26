@@ -10,11 +10,10 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Basicauth extends MiddlewareAbstract
 {
     protected string $middlewareName = 'basicauth';
-    protected array $middlewareOptions = ['users','usersFile','realm','removeHeader','headerField'];
+    protected array $middlewareOptions = ['users', 'usersFile', 'realm', 'removeHeader', 'headerField'];
 
-    public static function bcrypt( string $password) : string
+    public static function bcrypt(string $password): string
     {
-        return password_hash( $password, PASSWORD_BCRYPT );
+        return password_hash($password, PASSWORD_BCRYPT);
     }
-
 }

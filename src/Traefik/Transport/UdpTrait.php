@@ -2,7 +2,8 @@
 
 namespace Traefik\Transport;
 
-trait UdpTrait{
+trait UdpTrait
+{
 
     /**
      * @return string

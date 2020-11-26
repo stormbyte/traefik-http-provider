@@ -10,9 +10,9 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Inflightreq extends MiddlewareAbstract
 {
     protected string $middlewareName = 'inflightreq';
-    protected array $middlewareOptions = ['amount','sourceCriterion'];
+    protected array $middlewareOptions = ['amount', 'sourceCriterion'];
 
-    protected function setAmount( int $value )
+    protected function setAmount(int $value)
     {
         return $value;
     }

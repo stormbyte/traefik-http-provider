@@ -2,7 +2,8 @@
 
 namespace Traefik\Type;
 
-trait MiddlewareTrait{
+trait MiddlewareTrait
+{
 
     /**
      * @return string

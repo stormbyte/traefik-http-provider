@@ -10,5 +10,5 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Passtlsclientcert extends MiddlewareAbstract
 {
     protected string $middlewareName = 'passtlsclientcert';
-    protected array $middlewareOptions = ['pem','info'];
+    protected array $middlewareOptions = ['pem', 'info'];
 }

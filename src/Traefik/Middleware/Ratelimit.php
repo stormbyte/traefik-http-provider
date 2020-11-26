@@ -10,5 +10,5 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Ratelimit extends MiddlewareAbstract
 {
     protected string $middlewareName = 'ratelimit';
-    protected array $middlewareOptions = ['average','period','burst','sourceCriterion'];
+    protected array $middlewareOptions = ['average', 'period', 'burst', 'sourceCriterion'];
 }

@@ -2,16 +2,16 @@
 
 namespace Traefik\Middleware;
 
-use Traefik\configObject;
+use Traefik\ConfigObject;
 use Traefik\Transport\HttpTrait;
 use Traefik\Type\MiddlewareTrait;
 
 /**
  * https://doc.traefik.io/traefik/v2.3/middlewares/headers/
  */
-class Headers implements configObject, MiddlewareInterface
+class Headers implements ConfigObject, MiddlewareInterface
 {
-	use HttpTrait;
+    use HttpTrait;
     use MiddlewareTrait;
 
     protected array $headers;
@@ -21,7 +21,8 @@ class Headers implements configObject, MiddlewareInterface
         $this->headers = $headers;
     }
 
-    public function getName(): string {
+    public function getName(): string
+    {
         return 'headers';
     }
 

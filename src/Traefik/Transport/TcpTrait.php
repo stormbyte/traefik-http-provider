@@ -2,7 +2,8 @@
 
 namespace Traefik\Transport;
 
-trait TcpTrait{
+trait TcpTrait
+{
 
     /**
      * @return string

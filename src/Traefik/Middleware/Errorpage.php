@@ -10,9 +10,9 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Errorpage extends MiddlewareAbstract
 {
     protected string $middlewareName = 'errors';
-    protected array $middlewareOptions = ['status','service','query'];
+    protected array $middlewareOptions = ['status', 'service', 'query'];
 
-    protected function setRemoveHeader( bool $value )
+    protected function setRemoveHeader(bool $value)
     {
         return $value;
     }
