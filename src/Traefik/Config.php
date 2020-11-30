@@ -18,7 +18,7 @@ class Config
 {
     protected $config = [];
 
-    public function setHttpService($name, $url)
+    public function setHttpService($name, $url): HttpService
     {
         if (!isset($this->config['HS'][$name])) {
             $this->config['HS'][$name] = (new HttpService())
@@ -30,7 +30,7 @@ class Config
         return $this->config['HS'][$name];
     }
 
-    public function setHttpRouter($name, $rule, $serviceName)
+    public function setHttpRouter($name, $rule, $serviceName): HttpRouter
     {
         if (!isset($this->config['HR'][$name])) {
             $this->config['HR'][$name] = (new HttpRouter())
@@ -41,7 +41,7 @@ class Config
         return $this->config['HR'][$name];
     }
 
-    public function setMiddleWare(string $name, MiddlewareInterface $middleware)
+    public function setMiddleWare(string $name, MiddlewareInterface $middleware): HttpMiddleware
     {
         if (!isset($this->config['MW'][$name])) {
             $this->config['MW'][$name] = (new HttpMiddleware())
@@ -51,7 +51,7 @@ class Config
         return $this->config['MW'][$name];
     }
 
-    public function setTcpService(string $name, $url)
+    public function setTcpService(string $name, $url): TcpService
     {
         if (!isset($this->config['TS'][$name])) {
             $this->config['TS'][$name] = (new TcpService())
@@ -62,7 +62,7 @@ class Config
         return $this->config['TS'][$name];
     }
 
-    public function setTcpRouter($name, $rule, $serviceName)
+    public function setTcpRouter($name, $rule, $serviceName): TcpRouter
     {
         if (!isset($this->config['TR'][$name])) {
             $this->config['TR'][$name] = (new TcpRouter())
@@ -73,7 +73,7 @@ class Config
         return $this->config['TR'][$name];
     }
 
-    public function setUdpService(string $name, $url)
+    public function setUdpService(string $name, $url): UdpService
     {
         if (!isset($this->config['US'][$name])) {
             $this->config['US'][$name] = (new UdpService())
@@ -84,7 +84,7 @@ class Config
         return $this->config['US'][$name];
     }
 
-    public function setUdpRouter($name, $rule, $serviceName)
+    public function setUdpRouter($name, $rule, $serviceName): UdpRouter
     {
         if (!isset($this->config['UR'][$name])) {
             $this->config['UR'][$name] = (new UdpRouter())
@@ -95,7 +95,7 @@ class Config
         return $this->config['UR'][$name];
     }
 
-    public function getJsonConfig()
+    public function getJsonConfig(): string
     {
         $result = [];
 

@@ -42,8 +42,10 @@ services:
     command: ["composer", "install"]
 
   api:
-    image: php:7.4-apache
+    image: php:8.0.0RC5-apache
     volumes:
       - ./html:/var/www/html
     depends_on:
       - composer
+    ports:
+      - 8888:80

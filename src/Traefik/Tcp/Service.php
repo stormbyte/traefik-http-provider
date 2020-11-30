@@ -2,9 +2,10 @@
 
 namespace Traefik\Tcp;
 
-use Traefik\ServiceObject;
+use Traefik\Service\AbstractObject as ServiceObject;
 use Traefik\Transport\TcpTrait;
 use Traefik\Type\ServiceTrait;
+use Traefik\Tcp\Server;
 
 class Service extends ServiceObject
 {
@@ -24,10 +25,16 @@ class Service extends ServiceObject
         return $this->terminationDelay;
     }
 
+    public function addServer( string $url ): self
+    {
+        $this->servers[] = (new Server( $url ));
+        return $this;
+    }
+
     public function getData(): array
     {
         $data = [
-            'servers' => $this->getServers()
+            $this->getServerKey() => $this->getServers()
         ];
         if (isset($this->terminationDelay)) {
             $data['terminationDelay'] = $this->getTerminationDelay();

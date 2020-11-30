@@ -2,9 +2,10 @@
 
 namespace Traefik\Udp;
 
-use Traefik\ServiceObject;
+use Traefik\Service\AbstractObject as ServiceObject;
 use Traefik\Transport\UdpTrait;
 use Traefik\Type\ServiceTrait;
+use Traefik\Udp\Server;
 
 class Service extends ServiceObject
 {
@@ -13,21 +14,46 @@ class Service extends ServiceObject
 
     protected int $terminationDelay;
 
-    public function setTerminationDelay(int $delay)
+    /**
+     *
+     * @param integer $delay
+     * @return self
+     */
+    public function setTerminationDelay(int $delay): self
     {
         $this->terminationDelay = $delay;
         return $this;
     }
 
-    public function getTerminationDelay()
+    /**
+     *
+     * @param integer $delay
+     * @return self
+     */
+    public function getTerminationDelay(): int
     {
         return $this->terminationDelay;
     }
 
+    /**
+     * @param string $url
+     * @return self
+     */
+    public function addServer( string $url ): self
+    {
+        $this->servers[] = (new Server( $url ));
+        return $this;
+    }
+
+    /**
+     *
+     * @param integer $delay
+     * @return self
+     */
     public function getData(): array
     {
         $data = [
-            'servers' => $this->getServers()
+            $this->getServerKey() => $this->getServers()
         ];
         if (isset($this->terminationDelay)) {
             $data['terminationDelay'] = $this->getTerminationDelay();
