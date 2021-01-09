@@ -8,8 +8,11 @@ variables:
 unit_test:
   image: php:8
   script:
-    - curl -fsSL https://phar.phpunit.de/phpunit-9.phar -o /usr/local/bin/phpunit && chmod +x /usr/local/bin/phpunit
-    - /usr/local/bin/phpunit tests
+    - curl -fsSL https://getcomposer.org/download/2.0.8/composer.phar -o /usr/local/bin/composer && chmod +x /usr/local/bin/composer
+    - composer install
+    - ./vendor/bin/phpunit --testdox tests
+    # - curl -fsSL https://phar.phpunit.de/phpunit-9.phar -o /usr/local/bin/phpunit && chmod +x /usr/local/bin/phpunit
+    # - /usr/local/bin/phpunit tests
 
 
 deploy_composer_tag:
