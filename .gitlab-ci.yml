@@ -1,8 +1,13 @@
 stages:
+  - test
   - deploy
 
 variables:
   DOCKER_DRIVER: overlay2
+
+unit_test:
+  image: phpunit/phpunit
+  script: /usr/local/bin/phpunit tests
 
 deploy_composer_tag:
   image: curlimages/curl:7.72.0
