@@ -14,7 +14,7 @@ unit_test:
   script:
     # - ./vendor/bin/phpunit --testdox tests
     - curl -fsSL https://phar.phpunit.de/phpunit-9.phar -o /usr/local/bin/phpunit && chmod +x /usr/local/bin/phpunit
-    - /usr/local/bin/phpunit --bootstrap ./autoload_psr4.php tests
+    - /usr/local/bin/phpunit --bootstrap ./tests/bootstrap.php tests
 
 
 deploy_composer_tag:
