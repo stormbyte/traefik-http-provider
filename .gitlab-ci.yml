@@ -7,14 +7,14 @@ variables:
 
 unit_test:
   image: php:8
-  before_script:
-    - apt-get update && apt-get install -y git
-    - curl -fsSL https://getcomposer.org/download/2.0.8/composer.phar -o /usr/local/bin/composer && chmod +x /usr/local/bin/composer
-    - composer install
+  # before_script:
+  #   - apt-get update && apt-get install -y git
+  #   - curl -fsSL https://getcomposer.org/download/2.0.8/composer.phar -o /usr/local/bin/composer && chmod +x /usr/local/bin/composer
+  #   - composer install
   script:
-    - ./vendor/bin/phpunit --testdox tests
-    # - curl -fsSL https://phar.phpunit.de/phpunit-9.phar -o /usr/local/bin/phpunit && chmod +x /usr/local/bin/phpunit
-    # - /usr/local/bin/phpunit tests
+    # - ./vendor/bin/phpunit --testdox tests
+    - curl -fsSL https://phar.phpunit.de/phpunit-9.phar -o /usr/local/bin/phpunit && chmod +x /usr/local/bin/phpunit
+    - /usr/local/bin/phpunit --bootstrap ./autoload_psr4.php tests
 
 
 deploy_composer_tag:
