@@ -9,7 +9,7 @@ use Traefik\Middleware\MiddlewareAbstract;
  */
 class Digestauth extends MiddlewareAbstract
 {
-    protected string $middlewareName = 'digestauth';
+    protected string $middlewareName = 'digestAuth';
     protected array $middlewareOptions = ['users', 'usersFile', 'realm', 'removeHeader', 'headerField'];
 
     // Use htdigest to generate passwords.
@@ -17,5 +17,10 @@ class Digestauth extends MiddlewareAbstract
     protected function setRemoveHeader(bool $value)
     {
         return $value;
+    }
+
+    public static function htdigest(string $username, string $realm, string $password): string
+    {
+        return md5(implode(':', [$username, $realm, $password]));
     }
 }

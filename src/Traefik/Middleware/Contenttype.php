@@ -9,7 +9,7 @@ use Traefik\Middleware\MiddlewareAbstract;
  */
 class Contenttype extends MiddlewareAbstract
 {
-    protected string $middlewareName = 'contenttype';
+    protected string $middlewareName = 'contentType';
     protected array $middlewareOptions = ['autoDetect'];
 
     protected function setAutoDetect(bool $value)

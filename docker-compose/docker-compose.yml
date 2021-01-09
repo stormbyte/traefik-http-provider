@@ -45,6 +45,7 @@ services:
     image: php:8.0.0RC5-apache
     volumes:
       - ./html:/var/www/html
+      - /home/stormbyte/Projects/traefik-http-config/src:/home/stormbyte/Projects/traefik-http-config/src
     depends_on:
       - composer
     ports:

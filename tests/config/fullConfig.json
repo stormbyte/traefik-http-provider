@@ -1,0 +1,394 @@
+{
+    "udp": {
+      "services": {
+        "UDPService01": {
+          "loadBalancer": {
+            "servers": [
+              {
+                "address": "foobar"
+              },
+              {
+                "address": "foobar"
+              }
+            ]
+          }
+        }
+      },
+      "routers": {
+        "UDPRouter0": {
+          "entryPoints": [
+            "foobar",
+            "foobar"
+          ],
+          "service": "foobar"
+        },
+        "UDPRouter1": {
+          "entryPoints": [
+            "foobar",
+            "foobar"
+          ],
+          "service": "foobar"
+        }
+      }
+    },
+    "http": {
+      "services": {
+        "Service01": {
+          "loadBalancer": {
+            "passHostHeader": true,
+            "servers": [
+              {
+                "url": "foobar"
+              },
+              {
+                "url": "foobar"
+              }
+            ]
+          }
+        }
+      },
+      "routers": {
+        "Router0": {
+          "priority": 42,
+          "entryPoints": [
+            "foobar",
+            "foobar"
+          ],
+          "service": "foobar",
+          "middlewares": [
+            "foobar",
+            "foobar"
+          ],
+          "rule": "foobar"
+        },
+        "Router1": {
+          "priority": 42,
+          "entryPoints": [
+            "foobar",
+            "foobar"
+          ],
+          "service": "foobar",
+          "middlewares": [
+            "foobar",
+            "foobar"
+          ],
+          "rule": "foobar"
+        }
+      },
+      "middlewares": {
+        "Middleware22": {
+          "stripPrefixRegex": {
+            "regex": [
+              "foobar",
+              "foobar"
+            ]
+          }
+        },
+        "Middleware00": {
+          "addPrefix": {
+            "prefix": "foobar"
+          }
+        },
+        "Middleware01": {
+          "basicAuth": {
+            "removeHeader": true,
+            "realm": "foobar",
+            "usersFile": "foobar",
+            "headerField": "foobar",
+            "users": [
+              "foobar",
+              "foobar"
+            ]
+          }
+        },
+        "Middleware02": {
+          "buffering": {
+            "memRequestBodyBytes": 42,
+            "maxRequestBodyBytes": 42,
+            "memResponseBodyBytes": 42,
+            "maxResponseBodyBytes": 42,
+            "retryExpression": "foobar"
+          }
+        },
+        "Middleware03": {
+          "chain": {
+            "middlewares": [
+              "foobar",
+              "foobar"
+            ]
+          }
+        },
+        "Middleware06": {
+          "contentType": {
+            "autoDetect": true
+          }
+        },
+        "Middleware08": {
+          "errors": {
+            "status": [
+              "foobar",
+              "foobar"
+            ],
+            "query": "foobar",
+            "service": "foobar"
+          }
+        },
+        "Middleware09": {
+          "forwardAuth": {
+            "tls": {
+              "cert": "foobar",
+              "ca": "foobar",
+              "caOptional": true,
+              "insecureSkipVerify": true,
+              "key": "foobar"
+            },
+            "trustForwardHeader": true,
+            "authResponseHeaders": [
+              "foobar",
+              "foobar"
+            ],
+            "address": "foobar"
+          }
+        },
+        "Middleware19": {
+          "replacePathRegex": {
+            "regex": "foobar",
+            "replacement": "foobar"
+          }
+        },
+        "Middleware18": {
+          "replacePath": {
+            "path": "foobar"
+          }
+        },
+        "Middleware17": {
+          "redirectScheme": {
+            "scheme": "foobar",
+            "permanent": true,
+            "port": "foobar"
+          }
+        },
+        "Middleware16": {
+          "redirectRegex": {
+            "regex": "foobar",
+            "permanent": true,
+            "replacement": "foobar"
+          }
+        },
+        "Middleware15": {
+          "rateLimit": {
+            "average": 42,
+            "burst": 42,
+            "period": 42,
+            "sourceCriterion": {
+              "ipStrategy": {
+                "depth": 42,
+                "excludedIPs": [
+                  "foobar",
+                  "foobar"
+                ]
+              },
+              "requestHeaderName": "foobar",
+              "requestHost": true
+            }
+          }
+        },
+        "Middleware21": {
+          "stripPrefix": {
+            "prefixes": [
+              "foobar",
+              "foobar"
+            ],
+            "forceSlash": true
+          }
+        },
+        "Middleware13": {
+          "passTLSClientCert": {
+            "info": {
+              "sans": true,
+              "notBefore": true,
+              "issuer": {
+                "province": true,
+                "organization": true,
+                "domainComponent": true,
+                "locality": true,
+                "country": true,
+                "serialNumber": true,
+                "commonName": true
+              },
+              "serialNumber": true,
+              "subject": {
+                "province": true,
+                "organization": true,
+                "domainComponent": true,
+                "locality": true,
+                "country": true,
+                "serialNumber": true,
+                "commonName": true
+              },
+              "notAfter": true
+            },
+            "pem": true
+          }
+        },
+        "Middleware12": {
+          "inFlightReq": {
+            "amount": 42,
+            "sourceCriterion": {
+              "ipStrategy": {
+                "depth": 42,
+                "excludedIPs": [
+                  "foobar",
+                  "foobar"
+                ]
+              },
+              "requestHeaderName": "foobar",
+              "requestHost": true
+            }
+          }
+        },
+        "Middleware11": {
+          "ipWhiteList": {
+            "ipStrategy": {
+              "depth": 42,
+              "excludedIPs": [
+                "foobar",
+                "foobar"
+              ]
+            },
+            "sourceRange": [
+              "foobar",
+              "foobar"
+            ]
+          }
+        },
+        "Middleware10": {
+          "headers": {
+            "stsIncludeSubdomains": true,
+            "addVaryHeader": true,
+            "customRequestHeaders": {
+              "name0": "foobar",
+              "name1": "foobar"
+            },
+            "accessControlAllowOriginList": [
+              "foobar",
+              "foobar"
+            ],
+            "sslProxyHeaders": {
+              "name0": "foobar",
+              "name1": "foobar"
+            },
+            "referrerPolicy": "foobar",
+            "accessControlAllowMethods": [
+              "foobar",
+              "foobar"
+            ],
+            "accessControlAllowOrigin": "foobar",
+            "sslTemporaryRedirect": true,
+            "contentTypeNosniff": true,
+            "stsSeconds": 42,
+            "sslRedirect": true,
+            "accessControlAllowCredentials": true,
+            "sslHost": "foobar",
+            "browserXssFilter": true,
+            "contentSecurityPolicy": "foobar",
+            "hostsProxyHeaders": [
+              "foobar",
+              "foobar"
+            ],
+            "accessControlAllowHeaders": [
+              "foobar",
+              "foobar"
+            ],
+            "sslForceHost": true,
+            "customResponseHeaders": {
+              "name0": "foobar",
+              "name1": "foobar"
+            },
+            "forceSTSHeader": true,
+            "publicKey": "foobar",
+            "frameDeny": true,
+            "allowedHosts": [
+              "foobar",
+              "foobar"
+            ],
+            "isDevelopment": true,
+            "customBrowserXSSValue": "foobar",
+            "accessControlMaxAge": 42,
+            "customFrameOptionsValue": "foobar",
+            "stsPreload": true,
+            "accessControlExposeHeaders": [
+              "foobar",
+              "foobar"
+            ],
+            "featurePolicy": "foobar"
+          }
+        },
+        "Middleware04": {
+          "circuitBreaker": {
+            "expression": "foobar"
+          }
+        },
+        "Middleware05": {
+          "compress": {
+            "excludedContentTypes": [
+              "foobar",
+              "foobar"
+            ]
+          }
+        },
+        "Middleware07": {
+          "digestAuth": {
+            "removeHeader": true,
+            "realm": "foobar",
+            "usersFile": "foobar",
+            "headerField": "foobar",
+            "users": [
+              "foobar",
+              "foobar"
+            ]
+          }
+        },
+        "Middleware20": {
+          "retry": {
+            "attempts": 42
+          }
+        }
+      }
+    },
+    "tcp": {
+      "services": {
+        "TCPService01": {
+          "loadBalancer": {
+            "terminationDelay": 42,
+            "servers": [
+              {
+                "address": "foobar"
+              },
+              {
+                "address": "foobar"
+              }
+            ]
+          }
+        }
+      },
+      "routers": {
+        "TCPRouter0": {
+          "entryPoints": [
+            "foobar",
+            "foobar"
+          ],
+          "service": "foobar",
+          "rule": "foobar"
+        },
+        "TCPRouter1": {
+          "entryPoints": [
+            "foobar",
+            "foobar"
+          ],
+          "service": "foobar",
+          "rule": "foobar"
+        }
+      }
+    }
+  }

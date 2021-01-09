@@ -16,5 +16,8 @@
         "psr-4": {
             "Traefik\\": "src/Traefik"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
     }
 }

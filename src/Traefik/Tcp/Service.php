@@ -20,7 +20,7 @@ class Service extends ServiceObject
         return $this;
     }
 
-    public function getTerminationDelay()
+    public function getTerminationDelay(): int
     {
         return $this->terminationDelay;
     }

@@ -9,7 +9,7 @@ abstract class RouterObject implements ConfigObject
 
     protected string $name;
     protected string $rule;
-    protected array $entryPoints;
+    protected array $entryPoints = [];
     protected bool $tls = false;
     protected int $priority;
     protected array $middlewares;

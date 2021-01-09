@@ -7,8 +7,8 @@ use \Traefik\ConfigObject;
 abstract class AbstractObject implements ConfigObject
 {
     const LOADBALANCER = 'loadBalancer';
-    // const MIRRORING = 'mirroring';
-    // const WEIGHTED = 'weighted';
+    const MIRRORING = 'mirroring';
+    const WEIGHTED = 'weighted';
 
     protected string $name;
     protected string $type;
@@ -70,10 +70,10 @@ abstract class AbstractObject implements ConfigObject
         switch ($this->getType()) {
             case self::LOADBALANCER:
                 return 'servers';
-            // case self::WEIGHTED:
-            //     return 'services';
-            // case self::MIRRORING:
-            //     return 'mirrors';
+            case self::WEIGHTED:
+                return 'services';
+            case self::MIRRORING:
+                return 'mirrors';
         }
         return 'servers';
     }

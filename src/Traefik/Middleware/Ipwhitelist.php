@@ -10,5 +10,5 @@ use Traefik\Middleware\MiddlewareAbstract;
 class Ipwhitelist extends MiddlewareAbstract
 {
     protected string $middlewareName = 'ipWhiteList';
-    protected array $middlewareOptions = ['sourceRange'];
+    protected array $middlewareOptions = ['sourceRange', 'ipStrategy'];
 }

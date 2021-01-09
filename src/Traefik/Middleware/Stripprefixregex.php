@@ -9,6 +9,6 @@ use Traefik\Middleware\MiddlewareAbstract;
  */
 class Stripprefixregex  extends MiddlewareAbstract
 {
-    protected string $middlewareName = 'stripprefixregex';
+    protected string $middlewareName = 'stripPrefixRegex';
     protected array $middlewareOptions = ['regex'];
 }

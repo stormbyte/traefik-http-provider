@@ -7,8 +7,8 @@ use Traefik\Middleware\MiddlewareAbstract;
 /**
  * https://doc.traefik.io/traefik/v2.3/middlewares/replacepathregex/
  */
-class replacepathregex extends MiddlewareAbstract
+class Replacepathregex extends MiddlewareAbstract
 {
-    protected string $middlewareName = 'replacepathregex';
+    protected string $middlewareName = 'replacePathRegex';
     protected array $middlewareOptions = ['regex', 'replacement'];
 }

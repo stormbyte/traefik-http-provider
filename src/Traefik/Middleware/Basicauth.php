@@ -9,7 +9,7 @@ use Traefik\Middleware\MiddlewareAbstract;
  */
 class Basicauth extends MiddlewareAbstract
 {
-    protected string $middlewareName = 'basicauth';
+    protected string $middlewareName = 'basicAuth';
     protected array $middlewareOptions = ['users', 'usersFile', 'realm', 'removeHeader', 'headerField'];
 
     public static function bcrypt(string $password): string

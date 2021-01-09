@@ -9,6 +9,6 @@ use Traefik\Middleware\MiddlewareAbstract;
  */
 class Circuitbreaker extends MiddlewareAbstract
 {
-    protected string $middlewareName = 'circuitbreaker';
+    protected string $middlewareName = 'circuitBreaker';
     protected array $middlewareOptions = ['expression'];
 }
