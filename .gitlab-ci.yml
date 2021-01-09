@@ -8,6 +8,7 @@ variables:
 unit_test:
   image: php:8
   script:
+    - apt-get update && apt-get install -y git
     - curl -fsSL https://getcomposer.org/download/2.0.8/composer.phar -o /usr/local/bin/composer && chmod +x /usr/local/bin/composer
     - composer install
     - ./vendor/bin/phpunit --testdox tests
