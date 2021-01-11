@@ -39,7 +39,7 @@ services:
     image: composer:1
     volumes:
       - ./html:/app
-    command: ["composer", "install"]
+    command: ["composer", "install", "--no-dev"]
 
   api:
     image: php:8-apache
