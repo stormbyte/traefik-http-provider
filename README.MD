@@ -1,8 +1,13 @@
 # Http Providers for Traefik
 
-Start with a new config
-`$config = new \Traefik\Config();`
+This package is meant to provide a easy to use [HTTP provider for Traefik](https://doc.traefik.io/traefik/providers/http/).
 
+The http provider can be set up to update in increments.
+
+In the `docker-compose` folder there is an example setup of a self contained setup with a interval of 5sec updates.
+As long as the config is valid json it should update every 5sec.
+
+With this package the config will output a valid json for traefik to read.
 
 ## Http
 
@@ -35,31 +40,31 @@ Add tls to enable SSL
 ### Middleware
 
 Add a Http Middleware the the config
-`$config->setMiddleWare( <my-middleware>, <MiddlewareInterface> )`
+`$config->addMiddleWare( <my-middleware>, <MiddlewareConfigInterface> )`
 
-Possible classes 
+Possible classes
 
-- `\Traefik\Middleware\Addprefix`
-- `\Traefik\Middleware\Basicauth`
-- `\Traefik\Middleware\Buffering`
-- `\Traefik\Middleware\Chain`
-- `\Traefik\Middleware\Circuitbreaker`
-- `\Traefik\Middleware\Compress`
-- `\Traefik\Middleware\Digestauth`
-- `\Traefik\Middleware\Errors`
-- `\Traefik\Middleware\Forwardauth`
-- `\Traefik\Middleware\Headers`
-- `\Traefik\Middleware\Ipwhitelist`
-- `\Traefik\Middleware\Inflightreq`
-- `\Traefik\Middleware\Passtlsclientcert`
-- `\Traefik\Middleware\Ratelimit`
-- `\Traefik\Middleware\Redirectscheme`
-- `\Traefik\Middleware\Redirectregex`
-- `\Traefik\Middleware\Replacepath`
-- `\Traefik\Middleware\Replacepathregex`
-- `\Traefik\Middleware\Retry`
-- `\Traefik\Middleware\Stripprefix`
-- `\Traefik\Middleware\Stripprefixregex`
+- `\Traefik\Middleware\Config\AddPrefix`
+- `\Traefik\Middleware\Config\BasicAuth`
+- `\Traefik\Middleware\Config\Buffering`
+- `\Traefik\Middleware\Config\Chain`
+- `\Traefik\Middleware\Config\CircuitBreaker`
+- `\Traefik\Middleware\Config\Compress`
+- `\Traefik\Middleware\Config\DigestAuth`
+- `\Traefik\Middleware\Config\ErrorPage`
+- `\Traefik\Middleware\Config\ForwardAuth`
+- `\Traefik\Middleware\Config\Headers`
+- `\Traefik\Middleware\Config\InFlightReq`
+- `\Traefik\Middleware\Config\IpWhiteList`
+- `\Traefik\Middleware\Config\PassTLSClientCert`
+- `\Traefik\Middleware\Config\RateLimit`
+- `\Traefik\Middleware\Config\RedirectRegex`
+- `\Traefik\Middleware\Config\RedirectScheme`
+- `\Traefik\Middleware\Config\ReplacePath`
+- `\Traefik\Middleware\Config\ReplacePathRegex`
+- `\Traefik\Middleware\Config\Retry`
+- `\Traefik\Middleware\Config\StripPrefix`
+- `\Traefik\Middleware\Config\StripPrefixRegex`
 
 ## Tcp
 
