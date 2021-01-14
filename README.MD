@@ -13,6 +13,8 @@ With this package the config will output a valid json for traefik to read.
 
 ### Service
 
+https://doc.traefik.io/traefik/routing/services/
+
 Add a Http Service to the config
 `$config->setHttpService( <my-service>, <backend-url>);`
 
@@ -23,6 +25,8 @@ With `addServer( <backend-url> )` it's possible to add more backend url's
 
 
 ### Router
+
+https://doc.traefik.io/traefik/routing/routers/
 
 Add a Http Router to the config
 `$config->setHttpRouter( <my-router>, <rule>, <my-service> )`
@@ -38,6 +42,8 @@ Add tls to enable SSL
 
 
 ### Middleware
+
+https://doc.traefik.io/traefik/middlewares/overview/
 
 Add a Http Middleware the the config
 `$config->addMiddleWare( <my-middleware>, <MiddlewareConfigInterface> )`
@@ -70,9 +76,13 @@ Possible classes
 
 ### Service
 
+https://doc.traefik.io/traefik/routing/services/#configuring-tcp-services
+
 `$config->setTcpService( <my-service>, <backend-url>)`
 
 ### Router
+
+https://doc.traefik.io/traefik/routing/routers/#configuring-tcp-routers
 
 `$config->setTcpRouter( <my-tcp-router>, <rule>, <my-tcp-service> )`
 `->setEntryPoints( [ <my-entrypoint> ] )`
@@ -82,9 +92,13 @@ Possible classes
 
 ### Service
 
+https://doc.traefik.io/traefik/routing/services/#configuring-udp-services
+
 `$config->setUpdService( <my-service>, <backend-url>)`
 
 ### Router
+
+https://doc.traefik.io/traefik/routing/routers/#configuring-udp-routers
 
 `$config->setUdpRouter( <my-udp-router>, <rule>, <my-udp-service> )`
 `->setEntryPoints( [ <my-entrypoint> ] )`
@@ -93,3 +107,23 @@ Possible classes
 ## Return config
 
 `echo $config->getJsonConfig()`
+
+
+
+## TODO
+
+Support for:
+- Root TLS settings
+https://doc.traefik.io/traefik/https/tls/
+- Full http router TLS settings
+  https://doc.traefik.io/traefik/routing/routers/#tls
+- Full tcp router TLS settings
+  https://doc.traefik.io/traefik/routing/routers/#tls
+- Weighted service
+  https://doc.traefik.io/traefik/routing/services/#weighted-round-robin-service
+- Mirroring service
+  https://doc.traefik.io/traefik/routing/services/#mirroring-service
+- Service health check
+  https://doc.traefik.io/traefik/routing/services/#health-check
+- Service sticky sessions
+  https://doc.traefik.io/traefik/routing/services/#sticky-sessions
