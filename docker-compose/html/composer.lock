@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "893592c8617f975718094f6246b3bd9d",
+    "content-hash": "49dcc333bac291edd1da3d5b9e5ee5a0",
     "packages": [
         {
             "name": "stormbyte/traefik-http-config",
-            "version": "V0.1.1",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stormbyte/traefik-http-provider.git",
-                "reference": "1d88c8479d0ff4f0cdc7aa3297fdaf12fa0eaf4f"
+                "reference": "15238f0a4ea0a32afd3c1f4a97fc3c4cb7a3b429"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stormbyte/traefik-http-provider/zipball/1d88c8479d0ff4f0cdc7aa3297fdaf12fa0eaf4f",
-                "reference": "1d88c8479d0ff4f0cdc7aa3297fdaf12fa0eaf4f",
+                "url": "https://api.github.com/repos/stormbyte/traefik-http-provider/zipball/15238f0a4ea0a32afd3c1f4a97fc3c4cb7a3b429",
+                "reference": "15238f0a4ea0a32afd3c1f4a97fc3c4cb7a3b429",
                 "shasum": ""
             },
             "require-dev": {
@@ -47,7 +47,7 @@
                 "php",
                 "traefik"
             ],
-            "time": "2021-01-10T15:49:28+00:00"
+            "time": "2021-01-14T19:03:25+00:00"
         }
     ],
     "packages-dev": [],
