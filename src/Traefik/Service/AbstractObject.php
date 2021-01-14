@@ -4,8 +4,7 @@ namespace Traefik\Service;
 
 use \Traefik\ConfigObject;
 
-abstract class AbstractObject implements ConfigObject
-{
+abstract class AbstractObject implements ConfigObject {
     const LOADBALANCER = 'loadBalancer';
     const MIRRORING = 'mirroring';
     const WEIGHTED = 'weighted';
@@ -18,8 +17,7 @@ abstract class AbstractObject implements ConfigObject
      * @param string $name
      * @return self
      */
-    public function setName(string $name): self
-    {
+    public function setName(string $name): self {
         $this->name = $name;
         return $this;
     }
@@ -28,8 +26,7 @@ abstract class AbstractObject implements ConfigObject
      * @param string $name
      * @return self
      */
-    public function getName(): string
-    {
+    public function getName(): string {
         return $this->name;
     }
 
@@ -37,8 +34,7 @@ abstract class AbstractObject implements ConfigObject
      * @param string $name
      * @return self
      */
-    public function setType(string $type): self
-    {
+    public function setType(string $type): self {
         $this->type = $type;
         return $this;
     }
@@ -47,26 +43,27 @@ abstract class AbstractObject implements ConfigObject
      * @param string $name
      * @return self
      */
-    public function getType(): string
-    {
+    public function getType(): string {
         return $this->type;
     }
 
     /**
-     * @param string $name
-     * @return self
+     * @param string $url
+     * @return mixed
      */
-    abstract public function addServer(string $url);
+    abstract public function addServer(string $url): self;
 
     /**
      * @return array
      */
-    public function getServers(): array
-    {
+    public function getServers(): array {
         return $this->servers;
     }
-    public function getServerKey()
-    {
+
+    /**
+     * @return string
+     */
+    public function getServerKey(): string {
         switch ($this->getType()) {
             case self::LOADBALANCER:
                 return 'servers';

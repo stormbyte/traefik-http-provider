@@ -7,8 +7,7 @@ use Traefik\Transport\HttpTrait;
 use Traefik\Type\ServiceTrait;
 use Traefik\Http\Server;
 
-class Service extends ServiceObject
-{
+class Service extends ServiceObject {
     use HttpTrait;
     use ServiceTrait;
 
@@ -19,8 +18,7 @@ class Service extends ServiceObject
      * @param boolean $status
      * @return void
      */
-    public function setPassHostHeader(bool $status)
-    {
+    public function setPassHostHeader(bool $status): self {
         $this->passHostHeader = $status;
         return $this;
     }
@@ -30,8 +28,7 @@ class Service extends ServiceObject
      * @param boolean $status
      * @return void
      */
-    public function getPassHostHeader()
-    {
+    public function getPassHostHeader(): bool {
         return $this->passHostHeader;
     }
 
@@ -40,9 +37,8 @@ class Service extends ServiceObject
      * @param boolean $status
      * @return void
      */
-    public function addServer( string $url ): self
-    {
-        $this->servers[] = (new Server( $url ));
+    public function addServer(string $url): self {
+        $this->servers[] = (new Server($url));
         return $this;
     }
 
@@ -51,8 +47,7 @@ class Service extends ServiceObject
      * @param boolean $status
      * @return void
      */
-    public function getData(): array
-    {
+    public function getData(): array {
         return [
             $this->getType() => [
                 'passHostHeader' => $this->getPassHostHeader(),

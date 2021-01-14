@@ -2,14 +2,12 @@
 
 namespace Traefik\Type;
 
-trait ServiceTrait
-{
+trait ServiceTrait {
 
     /**
      * @return string
      */
-    public function getTraefikType(): string
-    {
+    public function getTraefikType(): string {
         return 'services';
     }
 }

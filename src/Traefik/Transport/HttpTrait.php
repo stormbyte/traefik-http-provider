@@ -2,14 +2,12 @@
 
 namespace Traefik\Transport;
 
-trait HttpTrait
-{
+trait HttpTrait {
 
     /**
      * @return string
      */
-    public function getTraefikTransport(): string
-    {
+    public function getTraefikTransport(): string {
         return 'http';
     }
 }

@@ -6,19 +6,20 @@ use Traefik\RouterObject;
 use Traefik\Transport\HttpTrait;
 use Traefik\Type\RouterTrait;
 
-class Router extends RouterObject
-{
+class Router extends RouterObject {
     use HttpTrait;
     use RouterTrait;
 
-    public function getData(): array
-    {
+    public function getData(): array {
         $routerData = [
             'entryPoints' => $this->getEntryPoints(),
-            'service' => $this->getService(),
-            'rule' => $this->getRule(),
-
+            'service' => $this->getService()
         ];
+
+        if ($rule = $this->getRule()) {
+            $routerData['rule'] = $rule;
+        }
+
         if ($this->tls) {
             $routerData['tls'] = [
                 'certResolver' => 'letsencrypt'

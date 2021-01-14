@@ -4,8 +4,7 @@ namespace Traefik;
 
 use \Traefik\ConfigObject;
 
-abstract class RouterObject implements ConfigObject
-{
+abstract class RouterObject implements ConfigObject {
 
     protected string $name;
     protected string $rule;
@@ -13,75 +12,65 @@ abstract class RouterObject implements ConfigObject
     protected bool $tls = false;
     protected int $priority;
     protected array $middlewares;
+    protected string $serviceName;
 
-    public function setPriority(int $priority)
-    {
+    public function setPriority(int $priority): self {
         $this->priority = $priority;
         return $this;
     }
 
-    public function getPriority()
-    {
+    public function getPriority(): int {
         return $this->priority;
     }
 
-    public function getName(): string
-    {
+    public function getName(): string {
         return $this->name;
     }
 
-    public function setName($name)
-    {
+    public function setName($name): self {
         $this->name = $name;
         return $this;
     }
 
-    public function getRule()
-    {
-        return $this->rule;
+    public function getRule(): ?string {
+        return $this->rule ?? null;
     }
 
-    public function setRule($rule)
-    {
-        $this->rule = $rule;
+    public function setRule($rule): self {
+        if (strlen($rule)) {
+            $this->rule = $rule;
+        }
         return $this;
     }
 
-    public function getService()
-    {
+    public function getService(): string {
         return $this->serviceName;
     }
 
-    public function setService($serviceName)
-    {
+    public function setService(string $serviceName): self {
         $this->serviceName = $serviceName;
         return $this;
     }
 
-    public function getTls()
-    {
+    public function getTls(): bool {
         return $this->tls;
     }
 
-    public function setTls(bool $tls)
-    {
+    public function setTls(bool $tls): self {
         $this->tls = $tls;
         return $this;
     }
 
-    public function setEntryPoints(array $entryPoints)
-    {
+    public function setEntryPoints(array $entryPoints): self {
         $this->entryPoints = $entryPoints;
         return $this;
     }
 
-    public function getEntryPoints()
-    {
+    public function getEntryPoints(): array {
         return $this->entryPoints;
     }
 
-    public function setMiddlewares(array $middlewares)
-    {
+    public function setMiddlewares(array $middlewares): self {
         $this->middlewares = $middlewares;
         return $this;
     }
