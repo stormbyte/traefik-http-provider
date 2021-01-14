@@ -2,14 +2,12 @@
 
 namespace Traefik\Type;
 
-trait MiddlewareTrait
-{
+trait MiddlewareTrait {
 
     /**
      * @return string
      */
-    public function getTraefikType(): string
-    {
+    public function getTraefikType(): string {
         return 'middlewares';
     }
 }

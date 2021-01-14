@@ -3,33 +3,36 @@
 namespace Traefik\Middleware;
 
 use Traefik\Middleware\MiddlewareAbstract;
+use Traefik\Middleware\Config\Buffering as BufferingConfig;
 
 /**
  * https://doc.traefik.io/traefik/v2.3/middlewares/buffering/
  */
-class Buffering extends MiddlewareAbstract
-{
+class Buffering extends MiddlewareAbstract {
 
     protected string $middlewareName = 'buffering';
-    protected array $middlewareOptions = ['maxRequestBodyBytes', 'memRequestBodyBytes', 'maxResponseBodyBytes', 'memResponseBodyBytes', 'retryExpression'];
 
-    protected function setMaxRequestBodyBytes(int $value): int
-    {
-        return $value;
+    public function __construct(BufferingConfig $config) {
+        if ($retryExpression = $config->getRetryExpression()) {
+            $this->middlewareData['retryExpression'] = $retryExpression;
+        }
+
+        if ($memResponseBodyBytes = $config->getMemResponseBodyBytes()) {
+            $this->middlewareData['memResponseBodyBytes'] = $memResponseBodyBytes;
+        }
+
+        if ($maxResponseBodyBytes = $config->getMaxResponseBodyBytes()) {
+            $this->middlewareData['maxResponseBodyBytes'] = $maxResponseBodyBytes;
+        }
+
+        if ($memRequestBodyBytes = $config->getMemRequestBodyBytes()) {
+            $this->middlewareData['memRequestBodyBytes'] = $memRequestBodyBytes;
+        }
+
+        if ($maxRequestBodyBytes = $config->getMaxRequestBodyBytes()) {
+            $this->middlewareData['maxRequestBodyBytes'] = $maxRequestBodyBytes;
+        }
+
     }
 
-    protected function setMemRequestBodyBytes(int $value): int
-    {
-        return $value;
-    }
-
-    protected function setMaxResponseBodyBytes(int $value): int
-    {
-        return $value;
-    }
-
-    protected function setMemResponseBodyBytes(int $value): int
-    {
-        return $value;
-    }
 }

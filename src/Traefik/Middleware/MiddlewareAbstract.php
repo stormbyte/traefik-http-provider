@@ -6,17 +6,15 @@ use Traefik\ConfigObject;
 use Traefik\Transport\HttpTrait;
 use Traefik\Type\MiddlewareTrait;
 
-abstract class MiddlewareAbstract implements ConfigObject, MiddlewareInterface
-{
+abstract class MiddlewareAbstract implements ConfigObject, MiddlewareInterface {
     use HttpTrait;
     use MiddlewareTrait;
 
     protected string $middlewareName;
     protected array $middlewareOptions;
-    private array $middlewareData = [];
+    protected array $middlewareData = [];
 
-    public function __construct(array $config)
-    {
+    public function __construct(array $config) {
         foreach ($this->middlewareOptions as $middlewareOption) {
             if (isset($config[$middlewareOption])) {
                 $methodName = 'set' . $middlewareOption;
@@ -29,13 +27,11 @@ abstract class MiddlewareAbstract implements ConfigObject, MiddlewareInterface
         }
     }
 
-    public function getName(): string
-    {
+    public function getName(): string {
         return $this->middlewareName;
     }
 
-    public function getData(): array
-    {
+    public function getData(): array {
         return $this->middlewareData;
     }
 }

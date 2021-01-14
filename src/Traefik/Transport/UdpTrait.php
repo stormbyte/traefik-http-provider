@@ -2,14 +2,12 @@
 
 namespace Traefik\Transport;
 
-trait UdpTrait
-{
+trait UdpTrait {
 
     /**
      * @return string
      */
-    public function getTraefikTransport(): string
-    {
+    public function getTraefikTransport(): string {
         return 'udp';
     }
 }
