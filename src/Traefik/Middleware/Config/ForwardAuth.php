@@ -4,12 +4,19 @@ namespace Traefik\Middleware\Config;
 
 use Traefik\Middleware\Config\Tls as TlsConfig;
 
-class ForwardAuth {
+class ForwardAuth implements MiddlewareInterface{
 
     protected string $address;
     protected TlsConfig $tls;
     protected bool $trustForwardHeader;
     protected array $authResponseHeaders;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\ForwardAuth::class;
+    }
 
     /**
      * @return array|null

@@ -4,9 +4,16 @@ namespace Traefik\Middleware\Config;
 
 use Traefik\Middleware\Config\SourceCriterion;
 
-class InFlightReq {
+class InFlightReq implements MiddlewareInterface{
     protected int $amount;
     protected SourceCriterion $sourceCriterion;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\InFlightReq::class;
+    }
 
     /**
      * @return int|null

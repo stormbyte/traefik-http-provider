@@ -2,9 +2,16 @@
 
 namespace Traefik\Middleware\Config;
 
-class Compress {
+class Compress implements MiddlewareInterface{
 
     protected array $excludedContentTypes = [];
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\Compress::class;
+    }
 
     /**
      * @return array|null

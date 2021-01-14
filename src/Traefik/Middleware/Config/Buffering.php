@@ -2,12 +2,16 @@
 
 namespace Traefik\Middleware\Config;
 
-class Buffering {
+class Buffering implements MiddlewareInterface{
     protected int $maxRequestBodyBytes;
     protected int $memRequestBodyBytes;
     protected int $maxResponseBodyBytes;
     protected int $memResponseBodyBytes;
     protected string $retryExpression;
+
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\Buffering::class;
+    }
 
     /**
      * @return string|null

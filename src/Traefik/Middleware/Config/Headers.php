@@ -2,7 +2,7 @@
 
 namespace Traefik\Middleware\Config;
 
-class Headers {
+class Headers implements MiddlewareInterface{
 
     protected bool $stsIncludeSubdomains;
     protected bool $addVaryHeader;
@@ -37,6 +37,13 @@ class Headers {
     protected array $customRequestHeaders;
     protected array $customResponseHeaders;
     protected array $sslProxyHeaders;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\Headers::class;
+    }
 
     /**
      * @return bool|null

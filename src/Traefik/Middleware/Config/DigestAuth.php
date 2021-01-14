@@ -2,13 +2,20 @@
 
 namespace Traefik\Middleware\Config;
 
-class DigestAuth {
+class DigestAuth implements MiddlewareInterface{
 
     protected array $users;
     protected string $usersFile;
     protected string $realm;
     protected bool $removeHeader;
     protected string $headerField;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\DigestAuth::class;
+    }
 
     public static function htdigest(string $username, string $realm, string $password): string {
         return md5(implode(':', [$username, $realm, $password]));

@@ -2,9 +2,16 @@
 
 namespace Traefik\Middleware\Config;
 
-class ContentType {
+class ContentType implements MiddlewareInterface{
 
     protected bool $autoDetect;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\ContentType::class;
+    }
 
     /**
      * @return bool|null

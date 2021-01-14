@@ -2,12 +2,19 @@
 
 namespace Traefik\Middleware\Config;
 
-class RedirectRegex {
+class RedirectRegex implements MiddlewareInterface{
 
 
     protected string $regex;
     protected string $replacement;
     protected bool $permanent;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\RedirectRegex::class;
+    }
 
     /**
      * @return string|null

@@ -13,6 +13,7 @@ use Traefik\Udp\Service as UdpService;
 use Traefik\Udp\Router as UdpRouter;
 
 use Traefik\Middleware\MiddlewareInterface;
+use Traefik\Middleware\Config\MiddlewareInterface as MiddlewareConfigInterface;
 
 class Config {
     protected array $config = [];
@@ -36,6 +37,13 @@ class Config {
                 ->setService($serviceName);
         }
         return $this->config['HR'][$name];
+    }
+
+    public function addMiddleWare(string $name, MiddlewareConfigInterface $middlewareConfig): HttpMiddleware
+    {
+        $middlewareClass = $middlewareConfig->getMiddlewareClassName();
+        $middleware = (new $middlewareClass( $middlewareConfig ));
+        return $this->setMiddleWare($name, $middleware);
     }
 
     public function setMiddleWare(string $name, MiddlewareInterface $middleware): HttpMiddleware {

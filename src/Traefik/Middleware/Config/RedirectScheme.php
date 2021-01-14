@@ -2,11 +2,18 @@
 
 namespace Traefik\Middleware\Config;
 
-class RedirectScheme {
+class RedirectScheme implements MiddlewareInterface{
 
     protected string $scheme;
     protected string $port;
     protected bool $permanent;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\RedirectScheme::class;
+    }
 
     /**
      * @return string|null

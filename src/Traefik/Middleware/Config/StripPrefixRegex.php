@@ -5,9 +5,16 @@ namespace Traefik\Middleware\Config;
 /**
  * https://doc.traefik.io/traefik/v2.3/middlewares/stripprefixregex/
  */
-class StripPrefixRegex {
+class StripPrefixRegex implements MiddlewareInterface{
 
     protected array $regex;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\StripPrefixRegex::class;
+    }
 
     /**
      * @return array|null

@@ -2,10 +2,17 @@
 
 namespace Traefik\Middleware\Config;
 
-class ReplacePathRegex {
+class ReplacePathRegex implements MiddlewareInterface{
 
     protected string $regex;
     protected string $replacement;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\ReplacePathRegex::class;
+    }
 
     /**
      * @return string|null

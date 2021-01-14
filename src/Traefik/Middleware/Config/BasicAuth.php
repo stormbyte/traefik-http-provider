@@ -2,13 +2,17 @@
 
 namespace Traefik\Middleware\Config;
 
-class BasicAuth {
+class BasicAuth implements MiddlewareInterface{
 
     protected array $users = [];
     protected string $usersFile;
     protected string $realm;
     protected bool $removeHeader;
     protected string $headerField;
+
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\BasicAuth::class;
+    }
 
     public static function bcrypt(string $password): string {
         return password_hash($password, PASSWORD_BCRYPT);

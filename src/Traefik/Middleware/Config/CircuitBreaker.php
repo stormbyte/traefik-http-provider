@@ -2,9 +2,16 @@
 
 namespace Traefik\Middleware\Config;
 
-class CircuitBreaker {
+class CircuitBreaker implements MiddlewareInterface{
 
     protected string $expression;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\CircuitBreaker::class;
+    }
 
     /**
      * @return string|null

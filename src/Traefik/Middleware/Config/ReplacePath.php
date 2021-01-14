@@ -2,9 +2,16 @@
 
 namespace Traefik\Middleware\Config;
 
-class ReplacePath {
+class ReplacePath implements MiddlewareInterface{
 
     protected string $path;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\ReplacePath::class;
+    }
 
     /**
      * @return string|null

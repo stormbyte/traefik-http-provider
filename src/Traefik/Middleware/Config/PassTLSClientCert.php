@@ -2,7 +2,7 @@
 
 namespace Traefik\Middleware\Config;
 
-class PassTLSClientCert {
+class PassTLSClientCert implements MiddlewareInterface{
 
     protected bool $pem;
     protected bool $infoNotAfter;
@@ -11,6 +11,13 @@ class PassTLSClientCert {
     protected bool $serialNumber;
     protected Certificate $infoSubject;
     protected Certificate $infoIssuer;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\PassTLSClientCert::class;
+    }
 
     /**
      * @return bool

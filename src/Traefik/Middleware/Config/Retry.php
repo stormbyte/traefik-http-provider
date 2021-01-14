@@ -5,9 +5,16 @@ namespace Traefik\Middleware\Config;
 /**
  * https://doc.traefik.io/traefik/v2.3/middlewares/retry/
  */
-class Retry {
+class Retry implements MiddlewareInterface{
 
     protected int $attempts;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\Retry::class;
+    }
 
     /**
      * @return int|null

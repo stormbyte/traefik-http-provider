@@ -2,9 +2,16 @@
 
 namespace Traefik\Middleware\Config;
 
-class Chain {
+class Chain implements MiddlewareInterface{
 
     protected array $middlewares = [];
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\Chain::class;
+    }
 
     /**
      * @return array|null

@@ -2,11 +2,18 @@
 
 namespace Traefik\Middleware\Config;
 
-class ErrorPage {
+class ErrorPage implements MiddlewareInterface{
 
     protected array $status = [];
     protected string $service;
     protected string $query;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\ErrorPage::class;
+    }
 
     /**
      * @return string|null

@@ -2,11 +2,18 @@
 
 namespace Traefik\Middleware\Config;
 
-class RateLimit {
+class RateLimit implements MiddlewareInterface{
     protected int $average;
     protected string $period;
     protected int $burst;
     protected SourceCriterion $sourceCriterion;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\RateLimit::class;
+    }
 
     public function getAverage(): ?int {
         return $this->average ?? null;

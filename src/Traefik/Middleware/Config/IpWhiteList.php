@@ -2,11 +2,18 @@
 
 namespace Traefik\Middleware\Config;
 
-class IpWhiteList {
+class IpWhiteList implements MiddlewareInterface{
 
     protected int $ipStrategyDepth;
     protected array $ipStrategyExcludedIPs = [];
     protected array $sourceRange = [];
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\IpWhiteList::class;
+    }
 
     /**
      * @return int|null

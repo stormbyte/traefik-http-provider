@@ -5,10 +5,17 @@ namespace Traefik\Middleware\Config;
 /**
  * https://doc.traefik.io/traefik/v2.3/middlewares/stripprefix/
  */
-class StripPrefix {
+class StripPrefix implements MiddlewareInterface{
 
     protected array $prefixes;
     protected bool $forceSlash;
+
+    /**
+     * @return string
+     */
+    public function getMiddlewareClassName(): string {
+        return \Traefik\Middleware\StripPrefix::class;
+    }
 
     /**
      * @return array|null

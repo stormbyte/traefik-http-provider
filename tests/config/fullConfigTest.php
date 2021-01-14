@@ -7,50 +7,27 @@ namespace config;
 use PHPUnit\Framework\TestCase;
 
 use Traefik\Middleware\{
-    AddPrefix,
     Config\AddPrefix as AddPrefixConfig,
-    BasicAuth,
     Config\BasicAuth as BasicAuthConfig,
-    Buffering,
     Config\Buffering as BufferingConfig,
-    Chain,
     Config\Chain as ChainConfig,
-    CircuitBreaker,
     Config\CircuitBreaker as CircuitBreakerConfig,
-    Compress,
     Config\Compress as CompressConfig,
-    DigestAuth,
     Config\DigestAuth as DigestAuthConfig,
-    ErrorPage,
     Config\ErrorPage as ErrorPageConfig,
-    ForwardAuth,
     Config\ForwardAuth as ForwardAuthConfig,
-    Headers,
     Config\Headers as HeadersConfig,
-    InFlightReq,
     Config\InFlightReq as InFlightReqConfig,
-    IpWhiteList,
     Config\IpWhiteList as IpWhiteListConfig,
-    PassTLSClientCert,
     Config\PassTLSClientCert as PassTLSClientCertConfig,
-    RateLimit,
     Config\RateLimit as RateLimitConfig,
-    RedirectRegex,
     Config\RedirectRegex as RedirectRegexConfig,
-    RedirectScheme,
     Config\RedirectScheme as RedirectSchemeConfig,
-    ReplacePath,
     Config\ReplacePath as ReplacePathConfig,
-    ReplacePathRegex,
     Config\ReplacePathRegex as ReplacePathRegexConfig,
-    Retry,
     Config\Retry as RetryConfig,
-    StripPrefix,
     Config\StripPrefix as StripPrefixConfig,
-    StripPrefixRegex,
     Config\StripPrefixRegex as StripPrefixRegexConfig,
-
-    ContentType,
     Config\ContentType as ContentTypeConfig,
 
     Config\Certificate as CertificateConfig,
@@ -95,28 +72,28 @@ final class fullConfigTest extends TestCase
         $config->setTcpRouter('TCPRouter1', 'foobar', 'foobar')
             ->setEntryPoints(['foobar', 'foobar']);
 
-        $config->setMiddleWare('Middleware00', new AddPrefix($this->getMiddleware00Config()));
-        $config->setMiddleWare('Middleware01', new BasicAuth($this->getMiddleware01Config()));
-        $config->setMiddleWare('Middleware02', new Buffering($this->getMiddleware02Config()));
-        $config->setMiddleWare('Middleware03', new Chain($this->getMiddleware03Config()));
-        $config->setMiddleWare('Middleware04', new CircuitBreaker($this->getMiddleware04Config()));
-        $config->setMiddleWare('Middleware05', new Compress($this->getMiddleware05Config()));
-        $config->setMiddleWare('Middleware06', new ContentType($this->getMiddleware06Config()));
-        $config->setMiddleWare('Middleware07', new DigestAuth($this->getMiddleware07Config()));
-        $config->setMiddleWare('Middleware08', new ErrorPage($this->getMiddleware08Config()));
-        $config->setMiddleWare('Middleware09', new ForwardAuth($this->getMiddleware09Config()));
-        $config->setMiddleWare('Middleware10', new Headers($this->getMiddleware10Config()));
-        $config->setMiddleWare('Middleware11', new IpWhiteList($this->getMiddleware11Config()));
-        $config->setMiddleWare('Middleware12', new InFlightReq($this->getMiddleware12Config()));
-        $config->setMiddleWare('Middleware13', new PassTLSClientCert($this->getMiddleware13Config()));
-        $config->setMiddleWare('Middleware15', new RateLimit($this->getMiddleware15Config()));
-        $config->setMiddleWare('Middleware16', new RedirectRegex($this->getMiddleware16Config()));
-        $config->setMiddleWare('Middleware17', new RedirectScheme($this->getMiddleware17Config()));
-        $config->setMiddleWare('Middleware18', new ReplacePath($this->getMiddleware18Config()));
-        $config->setMiddleWare('Middleware19', new ReplacePathRegex($this->getMiddleware19Config()));
-        $config->setMiddleWare('Middleware20', new Retry($this->getMiddleware20Config()));
-        $config->setMiddleWare('Middleware21', new StripPrefix($this->getMiddleware21Config()));
-        $config->setMiddleWare('Middleware22', new StripPrefixRegex($this->getMiddleware22Config()));
+        $config->addMiddleWare('Middleware00', $this->getMiddleware00Config());
+        $config->addMiddleWare('Middleware01', $this->getMiddleware01Config());
+        $config->addMiddleWare('Middleware02', $this->getMiddleware02Config());
+        $config->addMiddleWare('Middleware03', $this->getMiddleware03Config());
+        $config->addMiddleWare('Middleware04', $this->getMiddleware04Config());
+        $config->addMiddleWare('Middleware05', $this->getMiddleware05Config());
+        $config->addMiddleWare('Middleware06', $this->getMiddleware06Config());
+        $config->addMiddleWare('Middleware07', $this->getMiddleware07Config());
+        $config->addMiddleWare('Middleware08', $this->getMiddleware08Config());
+        $config->addMiddleWare('Middleware09', $this->getMiddleware09Config());
+        $config->addMiddleWare('Middleware10', $this->getMiddleware10Config());
+        $config->addMiddleWare('Middleware11', $this->getMiddleware11Config());
+        $config->addMiddleWare('Middleware12', $this->getMiddleware12Config());
+        $config->addMiddleWare('Middleware13', $this->getMiddleware13Config());
+        $config->addMiddleWare('Middleware15', $this->getMiddleware15Config());
+        $config->addMiddleWare('Middleware16', $this->getMiddleware16Config());
+        $config->addMiddleWare('Middleware17', $this->getMiddleware17Config());
+        $config->addMiddleWare('Middleware18', $this->getMiddleware18Config());
+        $config->addMiddleWare('Middleware19', $this->getMiddleware19Config());
+        $config->addMiddleWare('Middleware20', $this->getMiddleware20Config());
+        $config->addMiddleWare('Middleware21', $this->getMiddleware21Config());
+        $config->addMiddleWare('Middleware22', $this->getMiddleware22Config());
 
         $phpConfig = json_decode($config->getJsonConfig(), true);
         $jsonConfig = json_decode(self::$jsonValidation, true);
