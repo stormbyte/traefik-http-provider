@@ -18,6 +18,11 @@ use Traefik\Middleware\Config\MiddlewareInterface as MiddlewareConfigInterface;
 class Config {
     protected array $config = [];
 
+    /**
+     * @param string $name
+     * @param string $url
+     * @return HttpService
+     */
     public function setHttpService(string $name, string $url): HttpService {
         if (!isset($this->config['HS'][$name])) {
             $this->config['HS'][$name] = (new HttpService())
@@ -29,6 +34,12 @@ class Config {
         return $this->config['HS'][$name];
     }
 
+    /**
+     * @param string $name
+     * @param string $rule
+     * @param string $serviceName
+     * @return HttpRouter
+     */
     public function setHttpRouter(string $name, string $rule, string $serviceName): HttpRouter {
         if (!isset($this->config['HR'][$name])) {
             $this->config['HR'][$name] = (new HttpRouter())
@@ -39,13 +50,26 @@ class Config {
         return $this->config['HR'][$name];
     }
 
+    /**
+     * @param string $name
+     * @param MiddlewareConfigInterface $middlewareConfig
+     * @return HttpMiddleware
+     */
     public function addMiddleWare(string $name, MiddlewareConfigInterface $middlewareConfig): HttpMiddleware
     {
+        if (isset($this->config['MW'][$name])) {
+            throw new
+        }
         $middlewareClass = $middlewareConfig->getMiddlewareClassName();
         $middleware = (new $middlewareClass( $middlewareConfig ));
         return $this->setMiddleWare($name, $middleware);
     }
 
+    /**
+     * @param string $name
+     * @param MiddlewareInterface $middleware
+     * @return HttpMiddleware
+     */
     public function setMiddleWare(string $name, MiddlewareInterface $middleware): HttpMiddleware {
         if (!isset($this->config['MW'][$name])) {
             $this->config['MW'][$name] = (new HttpMiddleware())
@@ -55,6 +79,11 @@ class Config {
         return $this->config['MW'][$name];
     }
 
+    /**
+     * @param string $name
+     * @param string $url
+     * @return TcpService
+     */
     public function setTcpService(string $name, string $url): TcpService {
         if (!isset($this->config['TS'][$name])) {
             $this->config['TS'][$name] = (new TcpService())
@@ -65,6 +94,12 @@ class Config {
         return $this->config['TS'][$name];
     }
 
+    /**
+     * @param string $name
+     * @param string $rule
+     * @param string $serviceName
+     * @return TcpRouter
+     */
     public function setTcpRouter(string $name, string $rule, string $serviceName): TcpRouter {
         if (!isset($this->config['TR'][$name])) {
             $this->config['TR'][$name] = (new TcpRouter())
@@ -75,6 +110,11 @@ class Config {
         return $this->config['TR'][$name];
     }
 
+    /**
+     * @param string $name
+     * @param string $url
+     * @return UdpService
+     */
     public function setUdpService(string $name, string $url): UdpService {
         if (!isset($this->config['US'][$name])) {
             $this->config['US'][$name] = (new UdpService())
@@ -85,6 +125,12 @@ class Config {
         return $this->config['US'][$name];
     }
 
+    /**
+     * @param string $name
+     * @param string $rule
+     * @param string $serviceName
+     * @return UdpRouter
+     */
     public function setUdpRouter(string $name, string $rule, string $serviceName): UdpRouter {
         if (!isset($this->config['UR'][$name])) {
             $this->config['UR'][$name] = (new UdpRouter())
@@ -95,6 +141,9 @@ class Config {
         return $this->config['UR'][$name];
     }
 
+    /**
+     * @return string
+     */
     public function getJsonConfig(): string {
         $result = [];
 
