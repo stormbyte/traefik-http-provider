@@ -15,6 +15,8 @@ use Traefik\Udp\Router as UdpRouter;
 use Traefik\Middleware\MiddlewareInterface;
 use Traefik\Middleware\Config\MiddlewareInterface as MiddlewareConfigInterface;
 
+use Traefik\Middleware\Exception\Duplicate as DuplicateMiddlewareException;
+
 class Config {
     protected array $config = [];
 
@@ -58,7 +60,7 @@ class Config {
     public function addMiddleWare(string $name, MiddlewareConfigInterface $middlewareConfig): HttpMiddleware
     {
         if (isset($this->config['MW'][$name])) {
-            throw new
+            throw new DuplicateMiddlewareException($name);
         }
         $middlewareClass = $middlewareConfig->getMiddlewareClassName();
         $middleware = (new $middlewareClass( $middlewareConfig ));
