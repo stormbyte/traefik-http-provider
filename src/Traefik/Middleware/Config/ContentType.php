@@ -16,7 +16,7 @@ class ContentType implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isAutoDetect(): ?bool {
+    public function getAutoDetect(): ?bool {
         return $this->autoDetect ?? null;
     }
 

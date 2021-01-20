@@ -22,7 +22,7 @@ class PassTLSClientCert implements MiddlewareInterface{
     /**
      * @return bool
      */
-    public function isPem(): ?bool {
+    public function getPem(): ?bool {
         return $this->pem ?? null;
     }
 
@@ -38,7 +38,7 @@ class PassTLSClientCert implements MiddlewareInterface{
     /**
      * @return bool
      */
-    public function isInfoNotAfter(): ?bool {
+    public function getInfoNotAfter(): ?bool {
         return $this->infoNotAfter ?? null;
     }
 
@@ -54,7 +54,7 @@ class PassTLSClientCert implements MiddlewareInterface{
     /**
      * @return bool
      */
-    public function isInfoNotBefore(): ?bool {
+    public function getInfoNotBefore(): ?bool {
         return $this->infoNotBefore ?? null;
     }
 
@@ -70,7 +70,7 @@ class PassTLSClientCert implements MiddlewareInterface{
     /**
      * @return bool
      */
-    public function isInfoSans(): ?bool {
+    public function getInfoSans(): ?bool {
         return $this->infoSans ?? null;
     }
 
@@ -118,7 +118,7 @@ class PassTLSClientCert implements MiddlewareInterface{
     /**
      * @return bool
      */
-    public function isInfoSerialNumber(): ?bool {
+    public function getInfoSerialNumber(): ?bool {
         return $this->serialNumber ?? null;
     }
 

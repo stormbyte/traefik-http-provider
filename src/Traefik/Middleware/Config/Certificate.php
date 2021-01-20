@@ -15,7 +15,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isCountry(): ?bool {
+    public function getCountry(): ?bool {
         return $this->country ?? null;
     }
 
@@ -31,7 +31,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isProvince(): ?bool {
+    public function getProvince(): ?bool {
         return $this->province ?? null;
     }
 
@@ -47,7 +47,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isLocality(): ?bool {
+    public function getLocality(): ?bool {
         return $this->locality ?? null;
     }
 
@@ -63,7 +63,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isOrganization(): ?bool {
+    public function getOrganization(): ?bool {
         return $this->organization ?? null;
     }
 
@@ -79,7 +79,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isCommonName(): ?bool {
+    public function getCommonName(): ?bool {
         return $this->commonName ?? null;
     }
 
@@ -95,7 +95,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isSerialNumber(): ?bool {
+    public function getSerialNumber(): ?bool {
         return $this->serialNumber ?? null;
     }
 
@@ -111,7 +111,7 @@ class Certificate {
     /**
      * @return bool
      */
-    public function isDomainComponent(): ?bool {
+    public function getDomainComponent(): ?bool {
         return $this->domainComponent ?? null;
     }
 
@@ -130,26 +130,26 @@ class Certificate {
     public function getData(): ?array {
         $dataArray = [];
 
-        if (!is_null($this->isCountry())) {
-            $dataArray['country'] = $this->isCountry();
+        if (!is_null($this->getCountry())) {
+            $dataArray['country'] = $this->getCountry();
         }
-        if (!is_null($this->isProvince())) {
-            $dataArray['province'] = $this->isProvince();
+        if (!is_null($this->getProvince())) {
+            $dataArray['province'] = $this->getProvince();
         }
-        if (!is_null($this->isLocality())) {
-            $dataArray['locality'] = $this->isLocality();
+        if (!is_null($this->getLocality())) {
+            $dataArray['locality'] = $this->getLocality();
         }
-        if (!is_null($this->isOrganization())) {
-            $dataArray['organization'] = $this->isOrganization();
+        if (!is_null($this->getOrganization())) {
+            $dataArray['organization'] = $this->getOrganization();
         }
-        if (!is_null($this->isCommonName())) {
-            $dataArray['commonName'] = $this->isCommonName();
+        if (!is_null($this->getCommonName())) {
+            $dataArray['commonName'] = $this->getCommonName();
         }
-        if (!is_null($this->isSerialNumber())) {
-            $dataArray['serialNumber'] = $this->isSerialNumber();
+        if (!is_null($this->getSerialNumber())) {
+            $dataArray['serialNumber'] = $this->getSerialNumber();
         }
-        if (!is_null($this->isDomainComponent())) {
-            $dataArray['domainComponent'] = $this->isDomainComponent();
+        if (!is_null($this->getDomainComponent())) {
+            $dataArray['domainComponent'] = $this->getDomainComponent();
         }
 
         return (!empty($dataArray)) ? $dataArray : null;

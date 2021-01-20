@@ -50,7 +50,7 @@ class RedirectScheme implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isPermanent(): ?bool {
+    public function getPermanent(): ?bool {
         return $this->permanent ?? null;
     }
 

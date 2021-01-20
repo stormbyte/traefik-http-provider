@@ -48,7 +48,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isStsIncludeSubdomains(): ?bool {
+    public function getStsIncludeSubdomains(): ?bool {
         return $this->stsIncludeSubdomains ?? null;
     }
 
@@ -64,7 +64,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isAddVaryHeader(): ?bool {
+    public function getAddVaryHeader(): ?bool {
         return $this->addVaryHeader ?? null;
     }
 
@@ -96,7 +96,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isSslTemporaryRedirect(): ?bool {
+    public function getSslTemporaryRedirect(): ?bool {
         return $this->sslTemporaryRedirect ?? null;
     }
 
@@ -112,7 +112,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isContentTypeNosniff(): ?bool {
+    public function getContentTypeNosniff(): ?bool {
         return $this->contentTypeNosniff ?? null;
     }
 
@@ -144,7 +144,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isSslRedirect(): ?bool {
+    public function getSslRedirect(): ?bool {
         return $this->sslRedirect ?? null;
     }
 
@@ -160,7 +160,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isAccessControlAllowCredentials(): ?bool {
+    public function getAccessControlAllowCredentials(): ?bool {
         return $this->accessControlAllowCredentials ?? null;
     }
 
@@ -192,7 +192,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isBrowserXssFilter(): ?bool {
+    public function getBrowserXssFilter(): ?bool {
         return $this->browserXssFilter ?? null;
     }
 
@@ -240,7 +240,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isSslForceHost(): ?bool {
+    public function getSslForceHost(): ?bool {
         return $this->sslForceHost ?? null;
     }
 
@@ -256,7 +256,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isForceSTSHeader(): ?bool {
+    public function getForceSTSHeader(): ?bool {
         return $this->forceSTSHeader ?? null;
     }
 
@@ -288,7 +288,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isFrameDeny(): ?bool {
+    public function getFrameDeny(): ?bool {
         return $this->frameDeny ?? null;
     }
 
@@ -304,7 +304,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isDevelopment(): ?bool {
+    public function getDevelopment(): ?bool {
         return $this->isDevelopment ?? null;
     }
 
@@ -368,7 +368,7 @@ class Headers implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isStsPreload(): ?bool {
+    public function getStsPreload(): ?bool {
         return $this->stsPreload ?? null;
     }
 

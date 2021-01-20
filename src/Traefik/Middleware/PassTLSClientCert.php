@@ -13,20 +13,20 @@ class PassTLSClientCert extends MiddlewareAbstract {
 
     public function __construct(PassTLSClientCertConfig $config) {
 
-        if( !is_null( $config->isPem() ) ) {
-            $this->middlewareData['pem'] = $config->isPem();
+        if( !is_null( $config->getPem() ) ) {
+            $this->middlewareData['pem'] = $config->getPem();
         }
-        if( !is_null( $config->isInfoNotAfter() ) ) {
-            $this->middlewareData['info']['notAfter'] = $config->isInfoNotAfter();
+        if( !is_null( $config->getInfoNotAfter() ) ) {
+            $this->middlewareData['info']['notAfter'] = $config->getInfoNotAfter();
         }
-        if( !is_null( $config->isInfoNotBefore() ) ) {
-            $this->middlewareData['info']['notBefore'] = $config->isInfoNotBefore();
+        if( !is_null( $config->getInfoNotBefore() ) ) {
+            $this->middlewareData['info']['notBefore'] = $config->getInfoNotBefore();
         }
-        if( !is_null( $config->isInfoSans() ) ) {
-            $this->middlewareData['info']['sans'] = $config->isInfoSans();
+        if( !is_null( $config->getInfoSans() ) ) {
+            $this->middlewareData['info']['sans'] = $config->getInfoSans();
         }
-        if( !is_null( $config->isInfoSerialNumber() ) ) {
-            $this->middlewareData['info']['serialNumber'] = $config->isInfoSans();
+        if( !is_null( $config->getInfoSerialNumber() ) ) {
+            $this->middlewareData['info']['serialNumber'] = $config->getInfoSans();
         }
 
         if( $infoSubject = $config->getInfoSubject() ) {

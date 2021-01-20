@@ -21,8 +21,8 @@ class RedirectScheme extends MiddlewareAbstract {
         if ($port = $config->getPort()) {
             $this->middlewareData['port'] = $port;
         }
-        if (!is_null($config->isPermanent())) {
-            $this->middlewareData['permanent'] = $config->isPermanent();
+        if (!is_null($config->getPermanent())) {
+            $this->middlewareData['permanent'] = $config->getPermanent();
         }
 
     }

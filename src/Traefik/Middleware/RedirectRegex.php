@@ -19,8 +19,8 @@ class RedirectRegex extends MiddlewareAbstract {
         if ($replacement = $config->getReplacement()) {
             $this->middlewareData['replacement'] = $replacement;
         }
-        if (!is_null($config->isPermanent())) {
-            $this->middlewareData['permanent'] = $config->isPermanent();
+        if (!is_null($config->getPermanent())) {
+            $this->middlewareData['permanent'] = $config->getPermanent();
         }
 
 

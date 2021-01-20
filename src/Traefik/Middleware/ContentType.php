@@ -12,8 +12,8 @@ class ContentType extends MiddlewareAbstract {
     protected string $middlewareName = 'contentType';
 
     public function __construct(ContentTypeConfig $config) {
-        if (!is_null($config->isAutoDetect())) {
-            $this->middlewareData['autoDetect'] = $config->isAutoDetect();
+        if (!is_null($config->getAutoDetect())) {
+            $this->middlewareData['autoDetect'] = $config->getAutoDetect();
         }
 
     }

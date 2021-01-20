@@ -13,8 +13,8 @@ class StripPrefix extends MiddlewareAbstract {
 
     public function __construct(StripPrefixConfig $config) {
 
-        if( !is_null( $config->isForceSlash() ) ) {
-            $this->middlewareData['forceSlash'] = $config->isForceSlash();
+        if( !is_null( $config->getForceSlash() ) ) {
+            $this->middlewareData['forceSlash'] = $config->getForceSlash();
         }
 
         if ($prefixes = $config->getPrefixes()) {

@@ -15,41 +15,41 @@ class Headers extends MiddlewareAbstract {
 
     public function __construct(HeadersConfig $config) {
 
-        if( !is_null( $config->isStsIncludeSubdomains() ) ){
-            $this->middlewareData['stsIncludeSubdomains'] = $config->isStsIncludeSubdomains();
+        if( !is_null( $config->getStsIncludeSubdomains() ) ){
+            $this->middlewareData['stsIncludeSubdomains'] = $config->getStsIncludeSubdomains();
         }
-        if( !is_null( $config->isAddVaryHeader() ) ){
-            $this->middlewareData['addVaryHeader'] = $config->isAddVaryHeader();
+        if( !is_null( $config->getAddVaryHeader() ) ){
+            $this->middlewareData['addVaryHeader'] = $config->getAddVaryHeader();
         }
-        if( !is_null( $config->isSslTemporaryRedirect() ) ){
-            $this->middlewareData['sslTemporaryRedirect'] = $config->isSslTemporaryRedirect();
+        if( !is_null( $config->getSslTemporaryRedirect() ) ){
+            $this->middlewareData['sslTemporaryRedirect'] = $config->getSslTemporaryRedirect();
         }
-        if( !is_null( $config->isContentTypeNosniff() ) ){
-            $this->middlewareData['contentTypeNosniff'] = $config->isContentTypeNosniff();
+        if( !is_null( $config->getContentTypeNosniff() ) ){
+            $this->middlewareData['contentTypeNosniff'] = $config->getContentTypeNosniff();
         }
-        if( !is_null( $config->isSslRedirect() ) ){
-            $this->middlewareData['sslRedirect'] = $config->isSslRedirect();
+        if( !is_null( $config->getSslRedirect() ) ){
+            $this->middlewareData['sslRedirect'] = $config->getSslRedirect();
         }
-        if( !is_null( $config->isAccessControlAllowCredentials() ) ){
-            $this->middlewareData['accessControlAllowCredentials'] = $config->isAccessControlAllowCredentials();
+        if( !is_null( $config->getAccessControlAllowCredentials() ) ){
+            $this->middlewareData['accessControlAllowCredentials'] = $config->getAccessControlAllowCredentials();
         }
-        if( !is_null( $config->isBrowserXssFilter() ) ){
-            $this->middlewareData['browserXssFilter'] = $config->isBrowserXssFilter();
+        if( !is_null( $config->getBrowserXssFilter() ) ){
+            $this->middlewareData['browserXssFilter'] = $config->getBrowserXssFilter();
         }
-        if( !is_null( $config->isSslForceHost() ) ){
-            $this->middlewareData['sslForceHost'] = $config->isSslForceHost();
+        if( !is_null( $config->getSslForceHost() ) ){
+            $this->middlewareData['sslForceHost'] = $config->getSslForceHost();
         }
-        if( !is_null( $config->isForceSTSHeader() ) ){
-            $this->middlewareData['forceSTSHeader'] = $config->isForceSTSHeader();
+        if( !is_null( $config->getForceSTSHeader() ) ){
+            $this->middlewareData['forceSTSHeader'] = $config->getForceSTSHeader();
         }
-        if( !is_null( $config->isFrameDeny() ) ){
-            $this->middlewareData['frameDeny'] = $config->isFrameDeny();
+        if( !is_null( $config->getFrameDeny() ) ){
+            $this->middlewareData['frameDeny'] = $config->getFrameDeny();
         }
-        if( !is_null( $config->isDevelopment() ) ){
-            $this->middlewareData['isDevelopment'] = $config->isDevelopment();
+        if( !is_null( $config->getDevelopment() ) ){
+            $this->middlewareData['isDevelopment'] = $config->getDevelopment();
         }
-        if( !is_null( $config->isStsPreload() ) ){
-            $this->middlewareData['stsPreload'] = $config->isStsPreload();
+        if( !is_null( $config->getStsPreload() ) ){
+            $this->middlewareData['stsPreload'] = $config->getStsPreload();
         }
 
         if( $accessControlAllowOrigin = $config->getAccessControlAllowOrigin() ){

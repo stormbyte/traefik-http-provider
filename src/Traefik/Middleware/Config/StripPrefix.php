@@ -36,7 +36,7 @@ class StripPrefix implements MiddlewareInterface{
     /**
      * @return bool|null
      */
-    public function isForceSlash(): ?bool {
+    public function getForceSlash(): ?bool {
         return $this->forceSlash ?? null;
     }
 
